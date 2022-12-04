@@ -20,6 +20,7 @@ public:
 
 private:
     std::string config, movesFromStart;
+    int DST;
 };
 
 #endif
