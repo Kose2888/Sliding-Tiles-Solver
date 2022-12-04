@@ -18,7 +18,7 @@ class MinHeap {
   
  private:
   int size;
-  int array;
+  std::vector<int> array;
   
   void perculateUp(int hole, int val);
   void perculateDown(int hole, int val);
