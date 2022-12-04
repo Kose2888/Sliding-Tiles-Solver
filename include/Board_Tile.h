@@ -16,6 +16,8 @@ public:
 
     std::vector<Board_Tile> nextConfigs();
 
+    int getDST();
+
 private:
     std::string config, movesFromStart;
 };

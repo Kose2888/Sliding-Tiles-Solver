@@ -82,3 +82,8 @@ std::vector<Board_Tile> Board_Tile::nextConfigs()
     }
     return vec;
 }
+
+int Board_Tile::getDST()
+{
+    return DST;
+}
