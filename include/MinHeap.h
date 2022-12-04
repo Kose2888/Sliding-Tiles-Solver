@@ -8,7 +8,7 @@
 
 class MinHeap {
  public:
-  MinHeap(const std::vector<Board_Tile> & initialItems);
+  MinHeap(const std::vector<int> & initialItems);
   
   void insert(Board_Tile key);
   
@@ -18,7 +18,7 @@ class MinHeap {
   
  private:
   int size;
-  std::vector<Board_Tile> array;
+  int array;
   
   void perculateUp(int hole, int val);
   void perculateDown(int hole, int val);
