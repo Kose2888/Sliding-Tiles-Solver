@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#inlcude "Board_Tile.h"
+#include "Board_Tile.h"
 
 class MinHeap {
  public:
