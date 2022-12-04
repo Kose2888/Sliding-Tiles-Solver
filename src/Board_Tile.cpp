@@ -80,9 +80,5 @@ std::vector<Board_Tile> Board_Tile::nextConfigs()
         Board_Tile boardMRight(configRight);
         vec.push_back(boardMRight);
     }
-    else
-    {
-        std::cout << "Error with nextConfigs" << std::endl;
-    }
     return vec;
 }
