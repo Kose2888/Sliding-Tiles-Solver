@@ -6,8 +6,9 @@ MinHeap::MinHeap(const std::vector<int> & initialItems) {
   size = 1;
   array.push_back(0); //empty first slot
   array.push_back(initialItems[0]); //First element
-  for (int i = 1; i < initialItems.size(); i++) //for all other elements
-    insert(i);
+  if (initialItems > 1)
+    for (int i = 1; i < initialItems.size(); i++) //for all other elements
+      insert(initialItems[i]);
 }
 
 bool MinHeap::isEmpty() {
