@@ -10,9 +10,9 @@ class MinHeap {
  public:
   MinHeap(const std::vector<int> & initialItems);
   
-  void insert(Board_Tile key);
+  void insert(const int key);
   
-  std::string deleteMin();
+  int deleteMin();
   
   bool isEmpty();
   
@@ -20,7 +20,7 @@ class MinHeap {
   int size;
   std::vector<int> array;
   
-  void perculateUp(int hole, int val);
-  void perculateDown(int hole, int val);
+  int percolateUp(int hole, int val);
+  int percolateDown(int hole, int val);
 };
 #endif //MINHEAP_H
