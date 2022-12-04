@@ -11,7 +11,7 @@ MinHeap::MinHeap(const std::vector<int> & initialItems) {
 }
 
 bool MinHeap::isEmpty() {
-  return size <= 1;
+  return size < 1;
 }
 
 void MinHeap::insert(const int key) {
