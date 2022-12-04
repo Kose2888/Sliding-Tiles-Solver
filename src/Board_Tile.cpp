@@ -1,2 +1,88 @@
+#include <iostream>
+#include <string>
 
+#include "Board_Tile.h"
 
+Board_Tile::Board_Tile(const std::string &s)
+{
+    if (s.size() != 9)
+        std::cout << "Invalid Input, must enter a tile of size 9" << std::endl;
+    else
+        config = s;
+}
+
+std::string Board_Tile::getConfig()
+{
+    return config;
+}
+
+void Board_Tile::displayBoard()
+{
+    int k = -1;
+    for (int i = 0; i < 3; i++)
+    {
+        std::cout << std::endl;
+        for (int j = 0; j < 3; j++)
+        {
+            k++;
+            std::cout << config[k] << " ";
+        }
+    }
+}
+
+std::vector<Board_Tile> Board_Tile::nextConfigs()
+{
+    std::vector<Board_Tile> vec = {};
+    std::size_t found = config.find('0');
+    char atFound = config[found];
+
+    if (found >= 3 && found <= 8) //  Move Up
+    {
+        std::string configUp = config;
+        char temp = configUp[found - 3];
+
+        configUp.replace((found - 3), 1, 1, atFound);
+        configUp.replace(found, 1, 1, temp);
+
+        Board_Tile boardMUp(configUp);
+        vec.push_back(boardMUp);
+    }
+    if (found >= 0 && found <= 5) //  Move Down
+    {
+        std::string configDown = config;
+        char temp = configDown[found + 3];
+
+        configDown.replace((found + 3), 1, 1, atFound);
+        configDown.replace(found, 1, 1, temp);
+
+        Board_Tile boardMDown(configDown);
+        vec.push_back(boardMDown);
+    }
+    if (found != 0 && found != 3 && found != 6) //  Move Left
+    {
+        std::string configLeft = config;
+        char temp = configLeft[found - 1];
+
+        configLeft.replace((found - 1), 1, 1, atFound);
+        configLeft.replace(found, 1, 1, temp);
+
+        Board_Tile boardMLeft(configLeft);
+        vec.push_back(boardMLeft);
+    }
+    if (found != 2 && found != 5 && found != 8) //  Move Right
+    {
+        std::string configRight = config;
+        char temp = configRight[found + 1];
+
+        configRight.replace((found + 1), 1, 1, atFound);
+        configRight.replace(found, 1, 1, temp);
+
+        Board_Tile boardMRight(configRight);
+        vec.push_back(boardMRight);
+    }
+    else
+    {
+        std::cout << "Error with nextConfigs" << std::endl;
+    }
+    return vec;
+}
