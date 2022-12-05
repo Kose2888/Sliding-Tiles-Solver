@@ -9,6 +9,7 @@ Board_Tile::Board_Tile(const std::string &s)
         std::cout << "Invalid Input, must enter a tile of size 9" << std::endl;
     else
         config = s;
+    movesFromStart = "";
 }
 
 std::string Board_Tile::getConfig()
@@ -45,6 +46,7 @@ std::vector<Board_Tile> Board_Tile::nextConfigs()
         configUp.replace(found, 1, 1, temp);
 
         Board_Tile boardMUp(configUp);
+        boardMUp.movesFromStart.append("U");
         vec.push_back(boardMUp);
     }
     if (found >= 0 && found <= 5) //  Move Down
@@ -56,6 +58,7 @@ std::vector<Board_Tile> Board_Tile::nextConfigs()
         configDown.replace(found, 1, 1, temp);
 
         Board_Tile boardMDown(configDown);
+        boardMDown.movesFromStart.append("D");
         vec.push_back(boardMDown);
     }
     if (found != 0 && found != 3 && found != 6) //  Move Left
@@ -67,6 +70,7 @@ std::vector<Board_Tile> Board_Tile::nextConfigs()
         configLeft.replace(found, 1, 1, temp);
 
         Board_Tile boardMLeft(configLeft);
+        boardMLeft.movesFromStart.append("L");
         vec.push_back(boardMLeft);
     }
     if (found != 2 && found != 5 && found != 8) //  Move Right
@@ -78,6 +82,7 @@ std::vector<Board_Tile> Board_Tile::nextConfigs()
         configRight.replace(found, 1, 1, temp);
 
         Board_Tile boardMRight(configRight);
+        boardMRight.movesFromStart.append("R");
         vec.push_back(boardMRight);
     }
     return vec;
@@ -107,4 +112,12 @@ int Board_Tile::Manhattan_Distance(const Board_Tile &goalconfig)
 void Board_Tile::operator=(const Board_Tile & in) {
     this->config = in.config;
     this->movesFromStart = in.movesFromStart;
+}
+
+std::string Board_Tile::getMoves() {
+    return movesFromStart;
+}
+
+bool Board_Tile::operator==(const Board_Tile & comp) {
+    return this->config.compare(comp.config);
 }

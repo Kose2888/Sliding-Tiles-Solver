@@ -21,7 +21,7 @@ int main()
 
   board.displayBoard();
   std::cout << "\n";
-
+/*
   std::vector<Board_Tile> list = board.nextConfigs();
 
   for (int i = 0; i < list.size(); i++)
@@ -44,6 +44,11 @@ int main()
   tile.displayBoard();
 
   pq.pop();
+*/
+
+  Sliding_Solver s(str, gconfig);
+
+  s.Solve_Puzzle();
 
   return 0;
 }

@@ -12,6 +12,8 @@ public:
 
     std::string getConfig();
 
+    std::string getMoves();
+
     void displayBoard();
 
     std::vector<Board_Tile> nextConfigs();
@@ -25,6 +27,8 @@ public:
     int Manhattan_Distance(const Board_Tile &goalconfig);
 
     void operator=(const Board_Tile & in);
+
+    bool operator==(const Board_Tile & comp);
 
 private:
     std::string config, movesFromStart;
