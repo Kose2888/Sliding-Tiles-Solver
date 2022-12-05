@@ -24,6 +24,8 @@ public:
 
     int Manhattan_Distance(const Board_Tile &goalconfig);
 
+    void operator=(const Board_Tile & in);
+
 private:
     std::string config, goalconfig, movesFromStart;
     int DST;
