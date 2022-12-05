@@ -46,6 +46,7 @@ std::vector<Board_Tile> Board_Tile::nextConfigs()
         configUp.replace(found, 1, 1, temp);
 
         Board_Tile boardMUp(configUp);
+        boardMUp.movesFromStart.append(this->movesFromStart);
         boardMUp.movesFromStart.append("U");
         vec.push_back(boardMUp);
     }
@@ -58,6 +59,7 @@ std::vector<Board_Tile> Board_Tile::nextConfigs()
         configDown.replace(found, 1, 1, temp);
 
         Board_Tile boardMDown(configDown);
+        boardMDown.movesFromStart.append(this->movesFromStart);
         boardMDown.movesFromStart.append("D");
         vec.push_back(boardMDown);
     }
@@ -70,6 +72,7 @@ std::vector<Board_Tile> Board_Tile::nextConfigs()
         configLeft.replace(found, 1, 1, temp);
 
         Board_Tile boardMLeft(configLeft);
+        boardMLeft.movesFromStart.append(this->movesFromStart);
         boardMLeft.movesFromStart.append("L");
         vec.push_back(boardMLeft);
     }
@@ -82,6 +85,7 @@ std::vector<Board_Tile> Board_Tile::nextConfigs()
         configRight.replace(found, 1, 1, temp);
 
         Board_Tile boardMRight(configRight);
+        boardMRight.movesFromStart.append(this->movesFromStart);
         boardMRight.movesFromStart.append("R");
         vec.push_back(boardMRight);
     }

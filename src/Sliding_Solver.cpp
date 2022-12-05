@@ -28,6 +28,7 @@ void Sliding_Solver::Solve_Puzzle() {
         }
 
         check = tileQueue.top();
+        tileQueue.pop();
 
         if(check.Manhattan_Distance(goalConfig) == -1)
             solved = true;
