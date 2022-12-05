@@ -18,6 +18,8 @@ public:
 
     int getDST();
 
+    void setDST(int i) { DST = i; }
+
     int numMoves();
 
     int Manhattan_Distance(const Board_Tile &goalconfig);
