@@ -95,15 +95,11 @@ int Board_Tile::numMoves()
 
 int Board_Tile::Manhattan_Distance(const Board_Tile &goalconfig)
 {
-    int d;
+    int d = 0;
     for (int i = 0; i < config.length(); i++)
     {
         if (this->config[i] != goalconfig.config[i])
-        {
-            std::cout << config[i] << std::endl;
-            std::cout << goalconfig.config[i] << std::endl;
             d += 1;
-        }
     }
-    return d;
+    return d - 1;
 }
