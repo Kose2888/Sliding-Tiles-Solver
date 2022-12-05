@@ -34,10 +34,8 @@ int main()
 
   std::priority_queue <Board_Tile, std::vector<Board_Tile>, BoardComparitor > pq;
 
-  int c = 1;
-
   for (Board_Tile b : list) {
-      b.setDST(c++);
+      b.setDST(b.Manhattan_Distance(goalBoard));
       pq.push(b);
   }
 
