@@ -27,7 +27,7 @@ public:
     void operator=(const Board_Tile & in);
 
 private:
-    std::string config, goalconfig, movesFromStart;
+    std::string config, movesFromStart;
     int DST;
 };
 

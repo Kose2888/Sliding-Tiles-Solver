@@ -107,5 +107,4 @@ int Board_Tile::Manhattan_Distance(const Board_Tile &goalconfig)
 void Board_Tile::operator=(const Board_Tile & in) {
     this->config = in.config;
     this->movesFromStart = in.movesFromStart;
-    this->goalconfig = in.goalconfig;
 }
