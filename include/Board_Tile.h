@@ -18,8 +18,12 @@ public:
 
     int getDST();
 
+    int numMoves();
+
+    int Manhattan_Distance(const Board_Tile &goalconfig);
+
 private:
-    std::string config, movesFromStart;
+    std::string config, goalconfig, movesFromStart;
     int DST;
 };
 

@@ -87,3 +87,23 @@ int Board_Tile::getDST()
 {
     return DST;
 }
+
+int Board_Tile::numMoves()
+{
+    return movesFromStart.length();
+}
+
+int Board_Tile::Manhattan_Distance(const Board_Tile &goalconfig)
+{
+    int d;
+    for (int i = 0; i < config.length(); i++)
+    {
+        if (this->config[i] != goalconfig.config[i])
+        {
+            std::cout << config[i] << std::endl;
+            std::cout << goalconfig.config[i] << std::endl;
+            d += 1;
+        }
+    }
+    return d;
+}
