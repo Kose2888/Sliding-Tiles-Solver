@@ -39,55 +39,63 @@ std::vector<Board_Tile> Board_Tile::nextConfigs()
 
     if (found >= 3 && found <= 8) //  Move Up
     {
-        std::string configUp = config;
-        char temp = configUp[found - 3];
+        if (movesFromStart.back() != 'D') {
+            std::string configUp = config;
+            char temp = configUp[found - 3];
 
-        configUp.replace((found - 3), 1, 1, atFound);
-        configUp.replace(found, 1, 1, temp);
+            configUp.replace((found - 3), 1, 1, atFound);
+            configUp.replace(found, 1, 1, temp);
 
-        Board_Tile boardMUp(configUp);
-        boardMUp.movesFromStart.append(this->movesFromStart);
-        boardMUp.movesFromStart.append("U");
-        vec.push_back(boardMUp);
+            Board_Tile boardMUp(configUp);
+            boardMUp.movesFromStart.append(this->movesFromStart);
+            boardMUp.movesFromStart.append("U");
+            vec.push_back(boardMUp);
+        }
     }
     if (found >= 0 && found <= 5) //  Move Down
     {
-        std::string configDown = config;
-        char temp = configDown[found + 3];
+        if (movesFromStart.back() != 'U') {
+            std::string configDown = config;
+            char temp = configDown[found + 3];
 
-        configDown.replace((found + 3), 1, 1, atFound);
-        configDown.replace(found, 1, 1, temp);
+            configDown.replace((found + 3), 1, 1, atFound);
+            configDown.replace(found, 1, 1, temp);
 
-        Board_Tile boardMDown(configDown);
-        boardMDown.movesFromStart.append(this->movesFromStart);
-        boardMDown.movesFromStart.append("D");
-        vec.push_back(boardMDown);
+            Board_Tile boardMDown(configDown);
+            boardMDown.movesFromStart.append(this->movesFromStart);
+            boardMDown.movesFromStart.append("D");
+            vec.push_back(boardMDown);
+        }
     }
     if (found != 0 && found != 3 && found != 6) //  Move Left
     {
-        std::string configLeft = config;
-        char temp = configLeft[found - 1];
+        if (movesFromStart.back() != 'R') {
+            std::string configLeft = config;
+            char temp = configLeft[found - 1];
 
-        configLeft.replace((found - 1), 1, 1, atFound);
-        configLeft.replace(found, 1, 1, temp);
+            configLeft.replace((found - 1), 1, 1, atFound);
+            configLeft.replace(found, 1, 1, temp);
 
-        Board_Tile boardMLeft(configLeft);
-        boardMLeft.movesFromStart.append(this->movesFromStart);
-        boardMLeft.movesFromStart.append("L");
-        vec.push_back(boardMLeft);
+            Board_Tile boardMLeft(configLeft);
+            boardMLeft.movesFromStart.append(this->movesFromStart);
+            boardMLeft.movesFromStart.append("L");
+            vec.push_back(boardMLeft);
+        }
     }
     if (found != 2 && found != 5 && found != 8) //  Move Right
     {
-        std::string configRight = config;
-        char temp = configRight[found + 1];
+        if (movesFromStart.back() != 'L') {
+            std::string configRight = config;
+            char temp = configRight[found + 1];
 
-        configRight.replace((found + 1), 1, 1, atFound);
-        configRight.replace(found, 1, 1, temp);
+            configRight.replace((found + 1), 1, 1, atFound);
+            configRight.replace(found, 1, 1, temp);
 
-        Board_Tile boardMRight(configRight);
-        boardMRight.movesFromStart.append(this->movesFromStart);
-        boardMRight.movesFromStart.append("R");
-        vec.push_back(boardMRight);
+            Board_Tile boardMRight(configRight);
+            boardMRight.movesFromStart.append(this->movesFromStart);
+            boardMRight.movesFromStart.append("R");
+            vec.push_back(boardMRight);
+        }
     }
     return vec;
 }

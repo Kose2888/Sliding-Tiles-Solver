@@ -28,7 +28,7 @@ void Sliding_Solver::Solve_Puzzle()
         std::vector<Board_Tile> list = check.nextConfigs();
         for (Board_Tile b : list)
         {
-            int DST = b.Manhattan_Distance(goalConfig) + b.numMoves();
+            int DST = b.Manhattan_Distance(goalConfig);
             b.setDST(DST);
             tileQueue.push(b);
         }
@@ -52,4 +52,6 @@ void Sliding_Solver::Solve_Puzzle()
               << std::left << std::setw(21) << check.numMoves()
               << std::left << std::setw(10) << check.getMoves()
               << std::endl;
+    while (!tileQueue.empty())
+        tileQueue.pop();
 }
