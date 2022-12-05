@@ -18,6 +18,8 @@ public:
 
     int getDST();
 
+    void setDST(int i) {DST = i;}
+
 private:
     std::string config, movesFromStart;
     int DST;
